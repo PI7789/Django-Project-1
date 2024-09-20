@@ -31,7 +31,9 @@
          </li>
           &nbsp;     &nbsp;     &nbsp;
           <li class="nav-item">
-           <a class="nav-link" href="{% url '' %}">Login</a>
+           <a class="nav-link" href="{% url 'my-login' %}">Login</a>
+          <li class="nav-item"> 
+            <a class="nav-link" href="{% url 'user-logout' %}">Sign out &nbsp;</a>
          </li>
         {% endif %}
        </ul>
