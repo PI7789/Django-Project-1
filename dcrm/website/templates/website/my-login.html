@@ -12,7 +12,7 @@
             <br>
             <form method="POST" autocomplete="off">
                 {% csrf_token %}
-                {{login_Form|crispy}}
+                {{login_forms|crispy}}
                 <br>
                 <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Login </button>      
             </form>
