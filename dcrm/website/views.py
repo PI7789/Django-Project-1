@@ -4,6 +4,8 @@ from  django.contrib.auth.models import auth
 from  django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from . models import Record
+from django.shortcuts import render, redirect
+from .forms import CreateRecordForm,CreateUserForm,LoginForm
 # Create your views here.
 def home(request):
     return render(request, 'website/index.html')
@@ -52,6 +54,22 @@ def dashboard(request):
     my_records = Record.objects.all()
     context = {'records': my_records}
     return render(request,'website/dashboard.html',context=context)
+
+# record creation
+@login_required(login_url='my_login')
+def create_record(request):
+    
+    form = CreateRecordForm()
+    if request.method == "POST":
+        form = CreateRecordForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard")
+        
+    context = {'create_form': form}
+    return render(request, 'website/create-record.html',context=context)
+
 
 
 
