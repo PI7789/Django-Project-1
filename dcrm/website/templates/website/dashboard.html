@@ -1,7 +1,60 @@
 {% extends 'website/base.html' %}
-
+{% load static %}
 {% block content %}
 
-    <h1> Diddy party sigma {{user}} </h1>
-    <img src="../../../static/images/jonkler.jpg" width="2000" height="600" >
+    <h3> Diddy party sigma {{user}} </h3>
+    {% comment %} <img src="{% static 'images/jonkler.jpg' %}" width="200" height="60" > {% endcomment %}
+    {% comment %} <img src="../../../static/images/edger.jpeg" width="2000" height="600" > {% endcomment %}
+
+    {% for record in records %}
+        {{records.id}}
+        {{records.first_name}}
+        {{records.last_name}}
+    {% endfor %}
+
+    <hr>
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard' %}">
+        Create Record
+    </a>
+    <hr>
+   
+
+    <table class="table table-dark table-hover table-bordered">
+
+        <thead class="table-primary">
+            <tr>
+                <th scope="col"> ID </th>
+                <th scope="col"> Full Name </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> Phone </th>
+                <th scope="col"> Address </th>
+                <th scope="col"> City </th>
+                <th scope="col"> Date Joined </th>
+                <th scope="col"> View </th>
+            </thead>
+
+            <tbody>
+            {% if records %}
+                {%  for record in records %}
+                <tr>
+                    <td> {{record.id}} </td>
+                    <td> {{record.first_name}} {{record.last_name}} </td>
+                    <td> {{record.email}} </td>
+                    <td> {{record.phone}} </td>
+                    <td> {{record.address}} </td>
+                    <td> {{record.city}} </td>
+                    <td> {{record.creation_data}} </td>
+                    <td> to do... </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+
+
+
+
+
+
+
 {% endblock %}
