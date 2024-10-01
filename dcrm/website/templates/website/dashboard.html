@@ -12,11 +12,6 @@
         {{records.last_name}}
     {% endfor %}
 
-    <hr>
-    <a class="btn btn-outline-primary btn-sm" href="{% url 'dashboard' %}">
-        Create Record
-    </a>
-    <hr>
    
 
     <table class="table table-dark table-hover table-bordered">
@@ -44,13 +39,16 @@
                     <td> {{record.address}} </td>
                     <td> {{record.city}} </td>
                     <td> {{record.creation_data}} </td>
-                    <td> to do... </td>
+                    <td> <a href="{% url 'record' record.id %}" class = "btn btn-info"> View Record </a> &nbsp;
+                     </td>
                 </tr>
                 {% endfor %}
             {% endif %}
             </tbody>
         </table>
-
+        <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+            Create Record
+        </a>
 
 
 
@@ -58,3 +56,5 @@
 
 
 {% endblock %}
+
+

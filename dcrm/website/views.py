@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from . models import Record
 from django.shortcuts import render, redirect
 from .forms import CreateRecordForm,CreateUserForm,LoginForm
+from .forms import CreateUserForm, LoginForm, CreateRecordForm, UpdateRecordForm
 # Create your views here.
 def home(request):
     return render(request, 'website/index.html')
@@ -70,6 +71,31 @@ def create_record(request):
     context = {'create_form': form}
     return render(request, 'website/create-record.html',context=context)
 
+# update a record
+@login_required(login_url='my-login')
+def update_record(request, pk):
+
+    record = Record.objects.get(id=pk)
+    form = UpdateRecordForm(instance=record)
+
+    if request.method == "POST":
+        form = UpdateRecordForm(request.POST, instance=record)
+
+        if form.is_valid():
+            form.save()
+            return redirect("dashboard")
+        
+    context ={'update_form': form}
+    return render(request, 'website/update-record.html',context=context)
+
+#read a single record
+
+@login_required(login_url='my-login')
+def singular_record(request,pk):
+
+    one_record = Record.objects.get(id=pk)
+    context = {'record':one_record}
+    return render(request,'website/view-record.html', context= context)
 
 
 
