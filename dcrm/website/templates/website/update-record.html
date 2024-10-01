@@ -12,9 +12,9 @@
 
                 <hr>
                 <br>
-                <form method="POST" autocomplete = "OFF">
+                <form method="POST" autocomplete = "ON">
                         {% csrf_token %}
-                        {{create_form|crispy}}
+                        {{update_form|crispy}}
                         <br>
                         <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Update Record </button>
                 </form>
