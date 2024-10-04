@@ -1,7 +1,26 @@
+body{
+    background-color: #034f7f;
+}
+
 .form-layout{  
 
     border-radius: 5px; 
     width: 500px;
 
 
+}
+
+.card1{
+    margin:auto;
+    padding-bottom: 20px;
+    background-color: #034f7f;  
+
+}
+.buttonsrecord{
+    text-align: center;
+}
+
+.errorlist{
+
+    color: red;
 }

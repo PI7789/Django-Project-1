@@ -1,4 +1,8 @@
-16/09 Paul 
-Completed slide 32 - added bootstrap
-
-Completed Slide 44, Added user creation form
+4/10
+finished slideshow 2
+currently on slide 3
+added button icons and shadow to icon
+to do:
+continue slideshow 3
+add icons to all buttons
+add shadows or other effects to other cards

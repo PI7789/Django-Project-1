@@ -2,10 +2,10 @@
 
 {% block content %}
 
-    <div class="card">
+    <div class="card1 text-center w-50 shadow-lg p-3 mb-3000 rounded">
         <strong>
-            {{record.last_name|upper}}
-            {{record.first_name}}
+            <h3> {{record.last_name|upper}} {{record.first_name}} </h3>
+            <hr>
         </strong>
 
         <div class="card-body">
@@ -18,14 +18,13 @@
         </div>
     </div>
     <br>
-    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return To Dash </a> &nbsp;
+    <div class = "buttonsrecord">
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return To Dash <i class="fa fa-bomb" aria-hidden="true"></i></a> &nbsp;
 
-    <a href="{% url 'update-record' record.id %}" class = "btn btn-info"> Update Record </a> &nbsp; 
+    <a href="{% url 'update-record' record.id %}" class = "btn btn-info"> Update Record <i class="fa fa-commenting" aria-hidden="true"></i></a> &nbsp; 
 
-    <a href="{% url 'delete-record' record.id %}" class = "btn btn-info"> Delete </a> &nbsp; 
-
-    <a href="{% url '' %}" class = "btn btn-danger "> Delete </a>
-    
+    <a href="{% url 'delete-record' record.id %}" class = "btn btn-danger "> Delete <i class="fa fa-trash" aria-hidden="true"></i></a>
+    </div>
 
 
 {% endblock %}
