@@ -5,4 +5,7 @@ added button icons and shadow to icon
 to do:
 continue slideshow 3
 add icons to all buttons
-add shadows or other effects to other cards
+add shadows or other effects to other cards    
+
+7/10
+on slide 6, finished it

@@ -46,18 +46,11 @@
             {% endif %}
             </tbody>
         </table>
-        <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
-            Create Record
+        <a id="createrecordbutton"class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+            Create Record  <i class="fa fa-plus-circle" aria-hidden="true"></i>
         </a>
 
-        <div class="card">
-            <strong>
-                <br>
-                &nbsp; &nbsp;
-                {{record.last_name|upper}}
-                {{record.first_name}}
-            </strong>
-            <hr>
+
 
 
 

@@ -27,11 +27,11 @@
         
          {% else %}
          <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}"> Register </a>
+          <a class="nav-link" href="{% url 'register' %}"> Register &nbsp; <i class="fa fa-registered" aria-hidden="true"></i> </a>
          </li>
           &nbsp;     &nbsp;     &nbsp;
           <li class="nav-item">
-           <a class="nav-link" href="{% url 'my-login' %}">Login</a>
+           <a class="nav-link" href="{% url 'my-login' %}">Login &nbsp; <i class="fa fa-sign-in" aria-hidden="true"></i> </a>
          </li>
         {% endif %}
        </ul>
