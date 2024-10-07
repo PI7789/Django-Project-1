@@ -30,3 +30,8 @@ body{
     color: red;
     border-color: red;
 }
+
+.card-body{
+    margin:auto;
+    width:200px;
+}

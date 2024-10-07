@@ -16,7 +16,11 @@
                         {% csrf_token %}
                         {{update_form|crispy}}
                         <br>
-                        <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Update Record </button>
+                        <button type="submit" class="btn btn-primary"> Update Record <i class="fa fa-user-plus" aria-hidden="true"></i></button>
+
+                        <a href="{% url 'dashboard' %}" class = "btn btn-secondary">
+                                Return to Dash &nbsp; <i class = "fa fa-arrow-left" aria-hidden="true"></i>
+                        </a>
                 </form>
 
 

@@ -7,6 +7,7 @@ from . models import Record
 from django.shortcuts import render, redirect
 from .forms import CreateRecordForm,CreateUserForm,LoginForm
 from .forms import CreateUserForm, LoginForm, CreateRecordForm, UpdateRecordForm
+from django.contrib import messages
 # Create your views here.
 def home(request):
     return render(request, 'website/index.html')
@@ -17,8 +18,10 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Account Created Successfully")
             return redirect('my-login')
     context = {"form": form}
+
 
     return render(request,'website/register.html',context=context) 
 
@@ -45,6 +48,7 @@ def my_login(request):
 def user_logout(request):
     print("logging out")
     auth.logout(request)
+    messages.success(request,"Logged out")
     return redirect("my-login")
 
 #dashboard
@@ -66,7 +70,10 @@ def create_record(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, "Your record was created!")
             return redirect("dashboard")
+
+   
         
     context = {'create_form': form}
     return render(request, 'website/create-record.html',context=context)
@@ -83,6 +90,7 @@ def update_record(request, pk):
 
         if form.is_valid():
             form.save()
+            messages.success(request, "Record was updated")
             return redirect("dashboard")
         
     context ={'update_form': form}
@@ -103,8 +111,11 @@ def delete_record(request,pk ):
     record = Record.objects.get(id=pk)
     record.delete()
 
-    return redirect("dashboard")
 
+
+
+
+    return redirect("dashboard")
 
 
                   
