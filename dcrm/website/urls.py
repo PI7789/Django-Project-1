@@ -26,6 +26,11 @@ urlpatterns = [
 
     path('delete-record/<int:pk>', views.delete_record, name="delete-record"),
 
+    # product overview
+
+    path('products', views.products, name = "products"),
+    
+
 
 
 

@@ -110,12 +110,17 @@ def singular_record(request,pk):
 def delete_record(request,pk ):
     record = Record.objects.get(id=pk)
     record.delete()
+    messages.success(request, "The record was deleted")
 
 
 
 
 
     return redirect("dashboard")
+
+
+def products(request):
+    return render(request, 'website/products.html')
 
 
                   
