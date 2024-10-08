@@ -13,4 +13,10 @@ class Record(models.Model):
     def __Str__(self):
         return self.first_name + " " + self.last_name
     
+
+class Gamedata(models.Model):
+    character_name = models.CharField(max_length = 100)
+    stars = models.IntegerField()
+
+    
     

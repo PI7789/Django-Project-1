@@ -23,6 +23,10 @@
             &nbsp;     &nbsp;     &nbsp;
             <li class="nav-item">
               <a class="nav-link" href="{% url 'user-logout' %}">Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+            <li class="nav-item">
+              <a class = "nav-link" href="{% url 'products' %}"> Products &nbsp; </a>
+            
+            
             </li>
         
          {% else %}
@@ -33,7 +37,7 @@
           <li class="nav-item">
            <a class="nav-link" href="{% url 'my-login' %}">Login &nbsp; <i class="fa fa-sign-in" aria-hidden="true"></i> </a>
           <li class="nav-item">
-            <a class = "nav-link" href="{% url 'products' %}""> Products &nbsp; </a>
+            <a class = "nav-link" href="{% url 'products' %}"> Products &nbsp; </a>
          </li>
         {% endif %}
        </ul>
