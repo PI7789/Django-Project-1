@@ -4,6 +4,7 @@ from  django.contrib.auth.models import auth
 from  django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from . models import Record
+from . models import Gamedata
 from django.shortcuts import render, redirect
 from .forms import CreateRecordForm,CreateUserForm,LoginForm
 from .forms import CreateUserForm, LoginForm, CreateRecordForm, UpdateRecordForm
@@ -122,8 +123,93 @@ def delete_record(request,pk ):
 def products(request):
     return render(request, 'website/products.html')
 
+@login_required(login_url = 'my-login')
+def game_date(request):
+    
+    data = Gamedata.objects.all()
+    context = {'data': data}
 
+    return render(request, 'website/game-data.html',context=context)
                   
+
+def weather_data(request):
+    print("loading weather view")
+    if request.method == "POST":
+        city=request.POST.get("city")
+        key = settings.my_api_key
+
+        BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q="
+
+        url = BASE_URL + city + "&appid=" + key
+
+        json_data = requests.get(url).json()
+
+        weather = json_data['weather'][0]['main']
+        temperature = int(json_data['main'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
      

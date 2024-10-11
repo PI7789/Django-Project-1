@@ -30,6 +30,11 @@ urlpatterns = [
 
     path('products', views.products, name = "products"),
     
+    #data page
+
+    path('game-data', views.game_date, name="game-data"),
+
+    path('weather-data',views.weather_data, name="weather-data"),
 
 
 

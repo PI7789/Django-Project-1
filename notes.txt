@@ -1,0 +1,6 @@
+11/10/24
+<>
+tr = table row
+td = table columns
+thead = title 
+th = thead shortcut for indented
