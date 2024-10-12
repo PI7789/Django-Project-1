@@ -2,6 +2,10 @@ body{
     background-color: #034f7f;
 }
 
+.gamedemo{
+    background-color: rgb(174, 224, 224);
+}
+
 .form-layout{  
 
     border-radius: 5px; 

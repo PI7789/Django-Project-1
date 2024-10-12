@@ -25,7 +25,8 @@
               <a class="nav-link" href="{% url 'user-logout' %}">Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
             <li class="nav-item">
               <a class = "nav-link" href="{% url 'products' %}"> Products &nbsp; </a>
-            
+            <li class="nav-item">
+              <a class = "nav-link" href="{% url 'game-data' %}"> Game Data &nbsp; </a>
             
             </li>
         
@@ -38,6 +39,10 @@
            <a class="nav-link" href="{% url 'my-login' %}">Login &nbsp; <i class="fa fa-sign-in" aria-hidden="true"></i> </a>
           <li class="nav-item">
             <a class = "nav-link" href="{% url 'products' %}"> Products &nbsp; </a>
+          <li class="nav-item">
+            <a class = "nav-link" href="{% url 'game-data' %}"> Game Data &nbsp; </a>
+          <li class="nav-item">
+            <a class = "nav-link" href="{% url 'admin:index' %}"> Administration &nbsp; </a>  
          </li>
         {% endif %}
        </ul>

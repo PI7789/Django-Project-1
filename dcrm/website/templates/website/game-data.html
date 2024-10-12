@@ -1,3 +1,5 @@
+<body class="gamedemo">
+
 {% extends 'website/base.html' %}
 {% block content %}
 
@@ -39,7 +41,7 @@
                 labels:[{% for row in data%} '{{row.character_name}}', {% endfor %}],
                 datasets: [{
                     backgroundColor: "red",
-                    data: [{% for row in data %}] '{{row.stats}}', {% endfor %}]
+                    data: [{% for row in data %} '{{row.stars}}', {% endfor %}]
                 }]
             },  
             options: {
@@ -55,3 +57,4 @@
 
 {% endblock %}
 
+</body>

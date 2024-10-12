@@ -1,6 +1,21 @@
-11/10/24
-<>
+<> - table stuff
 tr = table row
 td = table columns
 thead = title 
 th = thead shortcut for indented
+
+current problem = weather api key command in settings.py causes an error when trying to runserver
+
+
+
+changing one specific sites css :
+    body class tag at the start before everything, close off tag. in css .tag{css stuff}
+    <body class="gamedemo">
+    </body>
+    css = 
+    .gamedemo{
+        background-color: rgb(174, 224, 224);
+    }
+
+to make button to take to admin page:
+admin:index as url for the href

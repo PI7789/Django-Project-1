@@ -9,6 +9,8 @@ from django.shortcuts import render, redirect
 from .forms import CreateRecordForm,CreateUserForm,LoginForm
 from .forms import CreateUserForm, LoginForm, CreateRecordForm, UpdateRecordForm
 from django.contrib import messages
+from django.conf import settings
+import requests  
 # Create your views here.
 def home(request):
     return render(request, 'website/index.html')
@@ -39,15 +41,14 @@ def my_login(request):
                user = authenticate(request, username=username, password=password) 
 
                if user is not None :
-                  auth.login(request, user) 
-
+                  auth.login(request, user)
+                  messages.success(request,"Logged in") 
                   return redirect('dashboard')  
 
     context = {'login_forms':form}
     return render(request,'website/my-login.html', context = context)
 
 def user_logout(request):
-    print("logging out")
     auth.logout(request)
     messages.success(request,"Logged out")
     return redirect("my-login")
@@ -123,7 +124,6 @@ def delete_record(request,pk ):
 def products(request):
     return render(request, 'website/products.html')
 
-@login_required(login_url = 'my-login')
 def game_date(request):
     
     data = Gamedata.objects.all()
@@ -136,7 +136,7 @@ def weather_data(request):
     print("loading weather view")
     if request.method == "POST":
         city=request.POST.get("city")
-        key = settings.my_api_key
+        key = settings.MY_API_KEY
 
         BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q="
 
@@ -146,6 +146,28 @@ def weather_data(request):
 
         weather = json_data['weather'][0]['main']
         temperature = int(json_data['main'])
+        min = int(json_data['main']['temp_min'] - 273.15)
+        max = int(json_data['main']['temp_max'] - 273.15)
+        icon = json_data['weather'][0]['icon']
+
+        data = {
+            "location":city,
+            "weather": weather,
+            "temperature": temperature,
+            "min": min,
+            "max": max,
+            "icon" : icon
+           
+        }
+
+        context = {'data': data}
+
+        return render(request, 'website/weather-data.html', context=context)
+    else:
+        return render(request, 'website/weather-data.html')
+    
+        
+
 
 
 
